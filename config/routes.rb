@@ -3,7 +3,13 @@ Giftify::Application.routes.draw do
 
   root :to => "welcome#index"
 
+  match 'home' => 'home#index', :as => 'user_home'
+
   devise_for :users
+
+  resources :pages
+
+  match "/:name" => "pages#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

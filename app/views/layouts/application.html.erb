@@ -39,18 +39,29 @@
     <div class="navbar navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="brand" href="#">Giftify</a>
-          <div class="container-fluid nav-collapse">
+          <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a> <a href="#" class="brand">Giftify</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse in">
             <% if user_signed_in? %>
               <ul class="nav">
                 <li><p class="navbar-text">Welcome back, <%= current_user.email %></p></li>
               </ul>
-              <%= button_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn pull-right btn-danger" %>
+              <ul class="nav pull-right">
+                <li>
+                  <div class="btn-group">
+                  <%= link_to "Edit Account", edit_user_registration_path, :class => "btn btn-primary" %>
+                  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn-danger" %>
+                  </div>
+                </li>
+              </ul>
             <% else %>
-              <div class="btn-group pull-right">
-                <%= link_to "Register", new_user_registration_path, :class => "btn btn-success" %>
-                <%= link_to "Sign In", new_user_session_path, :class => "btn btn-primary" %>
-              </div>
+              <ul class="nav pull-right">
+                <li>
+                  <div class="btn-group">
+                    <%= link_to "Register", new_user_registration_path, :class => "btn btn-success" %>
+                    <%= link_to "Sign In", new_user_session_path, :class => "btn btn-primary" %>
+                  </div>
+                </li>
+              </ul>
             <% end %>
           </div><!--/.nav-collapse -->
         </div>
