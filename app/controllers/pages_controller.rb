@@ -19,11 +19,12 @@ class PagesController < ApplicationController
 
 	def destroy
 	    if params.include?(:id) 
-			@page = Page.find_by_name params[:id]
+			@page = Page.find params[:id]
 		else
 			@page = Page.find_by_name params[:name]
 		end
-	    @page.destroy
+
+		@page.destroy
 
 	    respond_to do |format|
 	      format.html { redirect_to user_home_path, notice: "Page has been deleted." }
@@ -39,6 +40,10 @@ class PagesController < ApplicationController
 		respond_to do |format|
 	      format.html
 	    end
+	end
+
+	def edit
+		@page = Page.find_by_name params[:name]
 	end
 
 end

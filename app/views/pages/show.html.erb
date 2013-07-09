@@ -1,17 +1,40 @@
-<p>
-  <b>Name:</b>
-  <%= @page.name %>
-</p>
+<style>
+	body {
+	    background: url('assets/bmbg.jpg');
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+</style>	
 
-<p>
-  <b>ID:</b>
-  <%= @page.id %>
-</p>
 
-<p>
-  <b>Owner:</b>
-  <%= @page.user_id %>
-</p>
+<div class="container-fluid" id="bg">
+	<div class="row-fluid">
+		<div class="span1"></div>
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', user_home_path %>
+		<div class="hero-unit well span10">
+			<h1>
+				<%= @page.name %>
+			</h1>
+			<p>
+				This would be a description.
+			</p>
+			<p>
+				<a class="btn btn-primary btn-large" href="#">Pay Me</a>
+			</p>
+		</div>
+
+		<div class="span1"></div>
+	</div>
+
+
+	<div class="row-fluid">
+		<div class="span1"></div>
+		<div lass="span12">
+		<%= link_to 'Edit', edit_page_path(@page) %> |
+		<%= link_to 'Back', user_home_path %>
+		</div>
+		<div class="span1"></div>
+	</div>
+</div>

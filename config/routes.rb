@@ -9,7 +9,8 @@ Giftify::Application.routes.draw do
 
   resources :pages
 
-  match "/:name" => "pages#show"
+  match "/:name" => "pages#show", :as => 'short_page'
+  match "/:name/edit" => "pages#edit", :as => 'short_page_edit'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
